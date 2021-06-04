@@ -39,6 +39,12 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
+          "dependencies": {
+            "Codecov": {
+              "target": "Package",
+              "version": "[1.13.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -98,6 +104,10 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Codecov": {
+              "target": "Package",
+              "version": "[1.13.0, )"
+            },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[16.7.1, )"
