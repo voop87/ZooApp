@@ -43,6 +43,10 @@
             "Codecov": {
               "target": "Package",
               "version": "[1.13.0, )"
+            },
+            "Codecov.MSBuild": {
+              "target": "Package",
+              "version": "[1.13.0, )"
             }
           },
           "imports": [
