@@ -1,11 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "l6GBYLT9riLumsfOw6oY1BN34ela/4vTzSj8JnhSrImIuPfQMBGTIvSbG2IU91RW7f9zG8yfxX/ZpLc4W7FDWA==",
+  "dgSpecHash": "ZHTadp7Nrq8xR5+8SrJpc8iCVE52rEuHn8C2senR74/uVUO/ZOTZjzrFN3mhUx0LTDtuZW+F8v0+jwVgaFgKcA==",
   "success": true,
   "projectFilePath": "F:\\projects\\anko-corp\\ZooApp\\tests\\ZooApp.Test\\ZooApp.Test.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Rus\\.nuget\\packages\\coverlet.collector\\3.0.3\\coverlet.collector.3.0.3.nupkg.sha512",
-    "C:\\Users\\Rus\\.nuget\\packages\\coverlet.msbuild\\3.0.3\\coverlet.msbuild.3.0.3.nupkg.sha512",
+    "C:\\Users\\Rus\\.nuget\\packages\\coverlet.collector\\1.3.0\\coverlet.collector.1.3.0.nupkg.sha512",
     "C:\\Users\\Rus\\.nuget\\packages\\microsoft.codecoverage\\16.7.1\\microsoft.codecoverage.16.7.1.nupkg.sha512",
     "C:\\Users\\Rus\\.nuget\\packages\\microsoft.csharp\\4.0.1\\microsoft.csharp.4.0.1.nupkg.sha512",
     "C:\\Users\\Rus\\.nuget\\packages\\microsoft.net.test.sdk\\16.7.1\\microsoft.net.test.sdk.16.7.1.nupkg.sha512",
