@@ -1,0 +1,12 @@
+F:\projects\anko-corp\ZooApp\src\ZooApp\bin\Debug\net5.0\ZooApp.deps.json
+F:\projects\anko-corp\ZooApp\src\ZooApp\bin\Debug\net5.0\ZooApp.dll
+F:\projects\anko-corp\ZooApp\src\ZooApp\bin\Debug\net5.0\ref\ZooApp.dll
+F:\projects\anko-corp\ZooApp\src\ZooApp\bin\Debug\net5.0\ZooApp.pdb
+F:\projects\anko-corp\ZooApp\src\ZooApp\obj\Debug\net5.0\ZooApp.csprojAssemblyReference.cache
+F:\projects\anko-corp\ZooApp\src\ZooApp\obj\Debug\net5.0\ZooApp.GeneratedMSBuildEditorConfig.editorconfig
+F:\projects\anko-corp\ZooApp\src\ZooApp\obj\Debug\net5.0\ZooApp.AssemblyInfoInputs.cache
+F:\projects\anko-corp\ZooApp\src\ZooApp\obj\Debug\net5.0\ZooApp.AssemblyInfo.cs
+F:\projects\anko-corp\ZooApp\src\ZooApp\obj\Debug\net5.0\ZooApp.csproj.CoreCompileInputs.cache
+F:\projects\anko-corp\ZooApp\src\ZooApp\obj\Debug\net5.0\ZooApp.dll
+F:\projects\anko-corp\ZooApp\src\ZooApp\obj\Debug\net5.0\ref\ZooApp.dll
+F:\projects\anko-corp\ZooApp\src\ZooApp\obj\Debug\net5.0\ZooApp.pdb
