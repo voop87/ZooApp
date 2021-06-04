@@ -2,10 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\ZooApp",
-    "\\tests",
-    "\\tests\\ZooApp.Test"
+    "\\tests"
   ],
-  "SelectedNode": "\\ZooApp.sln",
+  "SelectedNode": "\\tests\\ZooApp.Test",
   "PreviewInSolutionExplorer": false
 }
