@@ -26,7 +26,7 @@ jobs:
     - uses: codecov/codecov-action@v1
       with:
         token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
-        files: ./tests/CM.Aerodynamics.Tests/TestResults/coverage.opencover.xml
+        files: ./tests/ZooApp.Test/TestResults/coverage.opencover.xml
         flags: unittests 
         name: codecov-umbrella
         fail_ci_if_error: true 
