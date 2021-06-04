@@ -15,7 +15,4 @@
   <PropertyGroup>
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <PkgCodecov Condition=" '$(PkgCodecov)' == '' ">C:\Users\Rus\.nuget\packages\codecov\1.13.0</PkgCodecov>
-  </PropertyGroup>
 </Project>
