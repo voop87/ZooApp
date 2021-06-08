@@ -1,9 +1,11 @@
 {
   "ExpandedNodes": [
     "",
+    "\\.github",
+    "\\.github\\workflows",
     "\\src",
     "\\tests"
   ],
-  "SelectedNode": "\\tests\\ZooApp.Test",
+  "SelectedNode": "\\.github\\workflows\\dotnet.yml",
   "PreviewInSolutionExplorer": false
 }

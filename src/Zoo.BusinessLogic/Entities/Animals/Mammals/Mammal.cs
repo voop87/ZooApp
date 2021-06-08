@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Zoo.BusinessLogic
+namespace Zoo.BusinessLogic.Entities.Animals.Mammals
 {
-    public class Enclosure
+    public abstract class Mammal : Animal
     {
     }
 }

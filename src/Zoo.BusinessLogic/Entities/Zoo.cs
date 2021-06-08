@@ -10,5 +10,12 @@ namespace Zoo.BusinessLogic
 
         public string Location {  get; private set; } = "Zoo";
 
+        public Enclosure AddEnclosure(string name, int squreFeet)
+        {
+            Enclosure enclosure = new Enclosure(name, squreFeet);
+
+            Enclosures.Add(enclosure);
+            return enclosure;
+        }
     }
 }

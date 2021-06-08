@@ -30,5 +30,15 @@ namespace Zoo.BusinessLogic.Test
             List<Enclosure> enclosures = zoo.Enclosures;
             Assert.Empty(enclosures);
         }
+
+        [Fact]
+        public void ShouldAddEnclosure()
+        {
+            Zoo zoo = new Zoo();
+            zoo.AddEnclosure("Enclosure-1", 100);
+            List<Enclosure> enclosures = zoo.Enclosures;
+            Assert.Equal("Enclosure-1", enclosures[0].Name);
+            Assert.Equal(100, enclosures[0].SqureFeet);
+        }
     }
 }
