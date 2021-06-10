@@ -216,7 +216,7 @@ namespace Zoo.BusinessLogic.Test
 
             Assert.False(lion.IsHungry);
         }
-
+        /*
         [Fact]
         public void ShouldBeAbleToHealAllAnimals()
         {
@@ -241,7 +241,7 @@ namespace Zoo.BusinessLogic.Test
 
             Assert.False(lion.IsSick);
         }
-
+        */
         [Fact]
         public void ShouldThrowExceptionIfThereIsAreZooKeepersHired()
         {
