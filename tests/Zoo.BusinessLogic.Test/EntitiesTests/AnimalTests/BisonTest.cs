@@ -4,16 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xunit;
-using Zoo.BusinessLogic.Entities.Animals.Mammals;
-using Zoo.BusinessLogic.Entities.Animals.Reptiles;
-using Zoo.BusinessLogic.Entities.Animals.Birds;
-using Zoo.BusinessLogic.Entities;
-using Zoo.BusinessLogic.Exceptions;
 
 namespace Zoo.BusinessLogic.Test
 {
     public class BisonTest
     {
+        /*
         [Fact]
         public void ShouldGetAnimalState()
         {
@@ -111,6 +107,56 @@ namespace Zoo.BusinessLogic.Test
             bison.AddFeedShedule(hours);
             Assert.Equal(8, bison.FeedShedule[0]);
             Assert.Equal(18, bison.FeedShedule[1]);
+        }
+        */
+
+        [Fact]
+        public void ShoulBeAbleToCreateBison()
+        {
+            Bison bison = new();
+        }
+
+        [Fact]
+        public void ShoulRequire1000SqFeet()
+        {
+            Bison bison = new();
+            int requiredArea = bison.RequiredFeet;
+            Assert.Equal(1000, requiredArea);
+        }
+
+        [Fact]
+        public void ShouldBeAbleToGetFavoriteFood()
+        {
+            Bison bison = new();
+            List<string> food = bison.FavoriteFood.ToList<string>();
+        }
+
+        [Fact]
+        public void ShouldBeFriendlyWithElephants()
+        {
+            Bison bison = new();
+            Elephant elephant = new();
+
+            bool isFrindlyWithElephants = bison.IsFriendlyWith(elephant);
+            Assert.True(isFrindlyWithElephants);
+        }
+
+        [Fact]
+        public void ShouldNotBeFriendlyWithOtherAnimals()
+        {
+            Bison bison = new();
+            Lion lion = new();
+            Penguin penguin = new();
+            Parrot parrot = new();
+            Turtle turtle = new();
+            Snake snake = new();
+
+            Assert.Throws<NotFriendlyAnimalException>(() => { bison.IsFriendlyWith(bison); });
+            Assert.Throws<NotFriendlyAnimalException>(() => { bison.IsFriendlyWith(lion); });
+            Assert.Throws<NotFriendlyAnimalException>(() => { bison.IsFriendlyWith(penguin); });
+            Assert.Throws<NotFriendlyAnimalException>(() => { bison.IsFriendlyWith(parrot); });
+            Assert.Throws<NotFriendlyAnimalException>(() => { bison.IsFriendlyWith(turtle); });
+            Assert.Throws<NotFriendlyAnimalException>(() => { bison.IsFriendlyWith(snake); });
         }
     }
 }

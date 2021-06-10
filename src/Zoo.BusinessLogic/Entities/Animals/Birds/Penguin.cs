@@ -3,21 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Zoo.BusinessLogic.Exceptions;
 
-namespace Zoo.BusinessLogic.Entities.Animals.Birds
+namespace Zoo.BusinessLogic
 {
     public class Penguin : Bird
     {
-        public Penguin(int id = 2, bool isSick = false, bool isHungry = true)
-        {
-            ID = id;
-            IsSick = isSick;
-            FeedShedule = new List<int>();
-            IsHungry = isHungry;
-            FavoriteFood = "Meat";
-            RequiredFeet = 10;
-        }
+        public override int RequiredFeet { get; } = 10;
+
+        public override string[] FavoriteFood { get; } = { "Meat" };
 
         public override bool IsFriendlyWith(Animal animal)
         {

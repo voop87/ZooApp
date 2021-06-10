@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Zoo.BusinessLogic.Entities.Employees
+namespace Zoo.BusinessLogic
 {
-    interface IEmployee
+    public interface IEmployee
     {
         public string FirstName { get; }
         public string LastName { get; }

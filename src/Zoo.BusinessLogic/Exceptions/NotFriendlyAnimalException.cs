@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Zoo.BusinessLogic.Exceptions
+namespace Zoo.BusinessLogic
 {
     public class NotFriendlyAnimalException : Exception
     {

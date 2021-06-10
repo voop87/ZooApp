@@ -3,23 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Zoo.BusinessLogic.Exceptions;
-using Zoo.BusinessLogic.Entities.Animals.Mammals;
-using Zoo.BusinessLogic.Entities.Animals.Reptiles;
 
-namespace Zoo.BusinessLogic.Entities.Animals.Birds
+namespace Zoo.BusinessLogic
 {
     public class Parrot : Bird
     {
-        public Parrot(int id = 2, bool isSick = false, bool isHungry = true)
-        {
-            ID = id;
-            IsSick = isSick;
-            FeedShedule = new List<int>();
-            IsHungry = isHungry;
-            FavoriteFood = "Vegetables";
-            RequiredFeet = 5;
-        }
+        public override int RequiredFeet { get; } = 5;
+        public override string[] FavoriteFood { get; } = { "Vegetable" };
 
         public override bool IsFriendlyWith(Animal animal)
         {

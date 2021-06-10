@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Zoo.BusinessLogic.Entities;
 using System;
 
 namespace Zoo.BusinessLogic
@@ -7,53 +6,38 @@ namespace Zoo.BusinessLogic
     public abstract class Animal
     {
         public int ID { get; set; }
-        public bool IsSick { get; set; }
-        public bool IsHungry { get; set; }
-        public string FavoriteFood { get; set; }
-        public int RequiredFeet { get; set; }
+        public abstract string[] FavoriteFood { get; }
+        public abstract int RequiredFeet { get; }
+        public string NeededMedicine { get; } = new string[3] { "Antibiotic", "AntiDepression", "AntiInflammatory" }[new Random().Next(0, 3)];
 
-        public List<int> FeedShedule { get; set; }
-        public List<FeedTimeClass> FeedTimes { get; } = new List<FeedTimeClass>();
+        public bool IsSick { get; set; } = (new Random().Next(0, 10) > 5);
+
+        public bool IsHungry { get; set; } = (new Random().Next(0, 10) > 5);
+        public List<FeedTime> FeedTimes { get; } = new List<FeedTime>();
+        public List<int> FeedShedule { get; private set; } = new List<int>();
 
         public abstract bool IsFriendlyWith(Animal animal);
-        public void Feed(Food food)
+        public void Feed(Food food, IConsole zooConsole = null)
         {
-            if (IsHungry)
+            foreach (var anyFood in FavoriteFood)
             {
-                if (FavoriteFood == food.FoodType)
+                if (food.GetType().Name == anyFood)
                 {
                     IsHungry = false;
-                    Console.WriteLine("Animal has been fed");
-                } else
-                {
-                    Console.WriteLine("Animal don't like this food!");
                 }
-                
-            } else
-            {
-                Console.WriteLine("Animal is not hungry!");
             }
-            
         }
 
         public void AddFeedShedule(List<int> hours)
         {
-            foreach (int hour in hours)
-            {
-                FeedShedule.Add(hour);
-            }
+            FeedShedule = hours;
         }
 
         public void Heal(Medicine medicine)
         {
-            if (IsSick)
+            if (medicine.GetType().Name == NeededMedicine)
             {
                 IsSick = false;
-                Console.WriteLine("Animal has been healed");
-            }
-            else
-            {
-                Console.WriteLine("Animal doesn't need to heal!");
             }
         }
     }

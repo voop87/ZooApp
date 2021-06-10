@@ -6,16 +6,136 @@ namespace Zoo.BusinessLogic
 {
     public class Zoo : ZooApp
     {
-        public List<Enclosure> Enclosures { get; private set; } = new List<Enclosure>();
+        private readonly IConsole zooConsole;
+        public Zoo(IConsole console = null)
+        {
+            zooConsole = console;
+            zooConsole?.WriteLine("a Zoo was created without concrete location");
+        }
+        public Zoo(string location, IConsole console = null)
+        {
+            Location = location;
+            zooConsole = console;
+            zooConsole?.WriteLine($"a Zoo was created in {Location}");
+        }
 
-        public string Location {  get; private set; } = "Zoo";
+        public int StartingId { get; internal set; } = 1;
+        public List<Enclosure> Enclosures { get; private set; } = new List<Enclosure>();
+        public List<IEmployee> Employees { get; private set; } = new List<IEmployee>();
+
+        public string Location { get; private set; }
+
+        public void AddLocation(string anyLocation)
+        {
+            Location = anyLocation;
+            zooConsole?.WriteLine($"The location was changed to {Location} ");
+        }
 
         public Enclosure AddEnclosure(string name, int squreFeet)
         {
-            Enclosure enclosure = new Enclosure(name, squreFeet);
-
+            Enclosure enclosure = new Enclosure(this, name, squreFeet);
             Enclosures.Add(enclosure);
+            zooConsole?.WriteLine($"An enclousure was created. The enclousure's was set to {enclosure.Name}, it's area is {enclosure.SqureFeet} sq. feet ");
             return enclosure;
+        }
+
+        public Enclosure FindAvailableEnclosure(Animal animal)
+        {
+            foreach (var enclosure in Enclosures)
+            {
+                if (enclosure.SqureFeet >= animal.RequiredFeet &&
+                    enclosure.IsFriendlyTo(animal))
+                {
+                    zooConsole?.WriteLine($"Enclosure {enclosure.Name} was found");
+                    return enclosure;
+                }
+            }
+            zooConsole?.WriteLine($"There is no available enclosure");
+            throw new NoAvailableEnclosureException();
+        }
+
+        public void HireEmployee(IEmployee employee)
+        {
+            HireValidatorProvider validatorProvider = new();
+            IHireValidator employeeValidator = validatorProvider.GetHireValidator(employee);
+            List<ValidationError> errors = employeeValidator.ValidateEmployee(employee, this);
+
+            if (errors.Count == 0)
+            {
+                Employees.Add(employee);
+                zooConsole?.WriteLine($"{employee.GetType().Name} was hired");
+            }
+            else
+            {
+                zooConsole?.WriteLine($"The employee has no required expirience");
+                throw new NoNeededExperienceException();
+            }
+        }
+
+        public void FeedAnimals()
+        {
+            if (Employees.Count != 0)
+            {
+                foreach (var employee in Employees)
+                {
+                    if (employee.GetType().Name == typeof(ZooKeeper).Name)
+                    {
+                        foreach (var enclosure in Enclosures)
+                        {
+                            foreach (var creature in enclosure.Animals)
+                            {
+
+                                (employee as ZooKeeper).FeedAnimal(creature);
+
+                            }
+                        }
+                        break;
+                    }
+                    else
+                    {
+                        zooConsole?.WriteLine($"Zoo has no zookeeper, hire at least one");
+                        throw new NoNeededEmployeeException();
+                    }
+                }
+            }
+            else
+            {
+                zooConsole?.WriteLine($"Zoo has no employees hired");
+                throw new NoEmployeesException();
+            }
+        }
+
+        public void HealAnimals()
+        {
+            if (Employees.Count != 0)
+            {
+                foreach (var employee in Employees)
+                {
+                    if (employee.GetType().Name == typeof(Veterinarian).Name)
+                    {
+                        foreach (var enclosure in Enclosures)
+                        {
+                            foreach (var creature in enclosure.Animals)
+                            {
+                                (employee as Veterinarian).HealAnimal(creature);
+                                zooConsole?.WriteLine($"{creature.GetType().Name} was fed by {employee.FirstName} {employee.LastName}");
+                            }
+                        }
+                        break;
+                    }
+                    else
+                    {
+                        zooConsole?.WriteLine($"Zoo has no veterinarian, hire at least one");
+                        throw new NoNeededEmployeeException();
+                    }
+
+                }
+            }
+            else
+            {
+                zooConsole?.WriteLine($"Zoo has no veterinarian, hire at least one");
+                throw new NoEmployeesException();
+            }
         }
     }
 }
