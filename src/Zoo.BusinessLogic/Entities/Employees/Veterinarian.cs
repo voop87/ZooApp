@@ -23,15 +23,15 @@ namespace Zoo.BusinessLogic
         {
             if (!AnimalExperience.Contains(animal.GetType().ToString()))
             {
-                AnimalExperience.Add(animal.GetType().ToString());
+                AnimalExperience.Add(animal.GetType().Name);
             }
         }
 
         public bool HasAnimalExperience(Animal animal)
         {
-            foreach (string exp in AnimalExperience)
+            foreach (var creature in AnimalExperience)
             {
-                if (animal.GetType().ToString() == exp)
+                if (creature == animal.GetType().Name)
                 {
                     return true;
                 }

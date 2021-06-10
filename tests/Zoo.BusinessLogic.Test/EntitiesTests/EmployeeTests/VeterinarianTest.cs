@@ -46,15 +46,14 @@ namespace Zoo.BusinessLogic.Test.EntitiesTests.EmployeeTests
             Assert.Equal(familiarAnimals, veterinarian.AnimalExperience);
         }
 
-        /*
         [Fact]
         public void ShouldBeAbleToAddNewAnimalToAnimalExperience()
         {
             Veterinarian veterinarian = new("First Name", "Last Name");
-            veterinarian.AddAnimalExperience(new Lion());
-            //string faimiliarAnimal = veterinarian.AnimalExperience[0];
+            Lion lion = new Lion();
+            veterinarian.AddAnimalExperience(lion);
 
-            Assert.Equal(typeof(Lion), veterinarian.AnimalExperience[0].GetType());
+            Assert.Equal(lion.GetType().Name, veterinarian.AnimalExperience[0]);
         }
 
         [Fact]
@@ -64,9 +63,8 @@ namespace Zoo.BusinessLogic.Test.EntitiesTests.EmployeeTests
             veterinarian.AddAnimalExperience(new Elephant());
 
             Assert.True(veterinarian.HasAnimalExperience(new Elephant()));
-            Assert.False(veterinarian.HasAnimalExperience(new Lion()));
+            Assert.Throws<NoNeededExperienceException>(() => { veterinarian.HasAnimalExperience(new Lion()); });
         }
-        */
 
         [Fact]
         public void ShouldBeAbleToHealSickAnimalIfHasExpirienceWith()

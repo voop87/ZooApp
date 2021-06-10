@@ -9,7 +9,6 @@ namespace Zoo.BusinessLogic.Test.EntitiesTests.EmployeeTests
 {
     public class ZooKeeperTest
     {
-        /*
         [Fact]
         public void ShouldGetZooKeeperState()
         {
@@ -24,7 +23,7 @@ namespace Zoo.BusinessLogic.Test.EntitiesTests.EmployeeTests
             ZooKeeper zooKeeper = new ZooKeeper("Vasya", "Petrov");
             Parrot parrot = new Parrot();
             zooKeeper.AddAnimalExperience(parrot);
-            Assert.Equal(typeof(Parrot).ToString(), zooKeeper.AnimalExperience[0]);
+            Assert.Equal(parrot.GetType().Name, zooKeeper.AnimalExperience[0]);
         }
 
         [Fact]
@@ -50,7 +49,6 @@ namespace Zoo.BusinessLogic.Test.EntitiesTests.EmployeeTests
                 zooKeeper.HasAnimalExperience(parrot);
             });
         }
-        */
 
         [Fact]
         public void ShouldBeAbleToCreateZooKeeper()
@@ -92,7 +90,6 @@ namespace Zoo.BusinessLogic.Test.EntitiesTests.EmployeeTests
             Assert.Equal(availableFood, zookeeper.AvailableFood);
         }
 
-        /*
         [Fact]
         public void ShouldBeAbleToAddNewAnimalToAnimalExperience()
         {
@@ -110,9 +107,9 @@ namespace Zoo.BusinessLogic.Test.EntitiesTests.EmployeeTests
             zooKeeper.AddAnimalExperience(new Elephant());
 
             Assert.True(zooKeeper.HasAnimalExperience(new Elephant()));
-            Assert.False(zooKeeper.HasAnimalExperience(new Lion()));
+            Assert.Throws<NoNeededExperienceException>(() => { zooKeeper.HasAnimalExperience(new Lion()); });
         }
-        */
+
         [Fact]
         public void ShouldBeAbleToFeedlHungryAnimalIfHasExperienceWith()
         {
