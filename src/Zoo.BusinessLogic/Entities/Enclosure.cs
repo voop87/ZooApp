@@ -48,7 +48,7 @@ namespace Zoo.BusinessLogic
             {
                 if (!creature.IsFriendlyWith(animal))
                 {
-                    return false;
+                    throw new NotFriendlyAnimalException();
                 }
             }
             return true;

@@ -9,38 +9,6 @@ namespace Zoo.BusinessLogic.Test
 {
     public class ZooTest
     {
-        /*
-        [Fact]
-        public void ShouldCreateZoo()
-        {
-            Zoo zoo = new Zoo();
-        }
-
-        [Fact]
-        public void ShouldGetLocation()
-        {
-            Zoo zoo = new Zoo();
-            string location = zoo.Location;
-            Assert.Equal("Zoo", location);
-        }
-
-        [Fact]
-        public void ShouldGetEnclosuresList()
-        {
-            Zoo zoo = new Zoo();
-            List<Enclosure> enclosures = zoo.Enclosures;
-            Assert.Empty(enclosures);
-        }
-
-        [Fact]
-        public void ShouldAddEnclosure()
-        {
-            Zoo zoo = new Zoo();
-            zoo.AddEnclosure("Enclosure-1", 100);
-            List<Enclosure> enclosures = zoo.Enclosures;
-            Assert.Equal("Enclosure-1", enclosures[0].Name);
-            Assert.Equal(100, enclosures[0].SqureFeet);
-        }*/
         [Fact]
         public void ShoulBeAbleToCreateZoo()
         {
@@ -164,7 +132,7 @@ namespace Zoo.BusinessLogic.Test
 
             Assert.Throws<NoNeededExperienceException>(() => zoo.HireEmployee(veterinarian));
         }
-        /*
+       
         [Fact]
         public void ShouldBeAbleToHireExpiriencedZooKeeper()
         {
@@ -194,7 +162,7 @@ namespace Zoo.BusinessLogic.Test
 
             Assert.Equal(veterinarian, zoo.Employees[0]);
         }
-        */
+
         [Fact]
         public void ShouldBeAbleToFeedAllAnimals()
         {
@@ -216,7 +184,7 @@ namespace Zoo.BusinessLogic.Test
 
             Assert.False(lion.IsHungry);
         }
-        /*
+        
         [Fact]
         public void ShouldBeAbleToHealAllAnimals()
         {
@@ -241,7 +209,7 @@ namespace Zoo.BusinessLogic.Test
 
             Assert.False(lion.IsSick);
         }
-        */
+        
         [Fact]
         public void ShouldThrowExceptionIfThereIsAreZooKeepersHired()
         {

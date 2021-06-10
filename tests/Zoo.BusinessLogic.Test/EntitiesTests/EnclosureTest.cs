@@ -11,22 +11,6 @@ namespace Zoo.BusinessLogic.Test
 {
     public class EnclosureTest
     {
-        /*
-        [Fact]
-        public void ShouldAddAnimal()
-        {
-            Lion lion = new Lion(1);
-            List<Animal> animals = Enclosure.Animals;
-            Enclosure.AddAnimals(lion);
-
-            Assert.Equal(lion, animals[0]);
-        }
-
-        [Fact]
-        public void ShouldGetParentZoo()
-        {
-            Assert.Equal("Zoo", Enclosure.ParentZoo);
-        }*/
 
         [Fact]
         public void ShouldBeAbleToCreateEnclosureWithNameAreaAndParentZoo()
@@ -67,9 +51,12 @@ namespace Zoo.BusinessLogic.Test
         {
             Enclosure enclosure = new(new Zoo(), "huge enclosure", 100000);
             Elephant elephant = new Elephant();
+            Turtle turtle = new Turtle();
             enclosure.AddAnimals(elephant);
+            enclosure.AddAnimals(turtle);
 
             Assert.Equal(elephant, enclosure.Animals[0]);
+            Assert.Equal(turtle, enclosure.Animals[1]);
         }
 
         [Fact]
