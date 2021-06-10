@@ -192,9 +192,8 @@ namespace Zoo.BusinessLogic.Test
             zoo.AddEnclosure("Lions enclosure", 10000);
 
             Lion lion = new();
-            Lion lion2 = new();
 
-            Veterinarian veterinarian = new("John", "Doe");
+            Veterinarian veterinarian = new Veterinarian("John", "Doe");
 
             veterinarian.AvailableMedicine.Add(new Antibiotics());
             veterinarian.AvailableMedicine.Add(new AntiDepression());
@@ -204,15 +203,12 @@ namespace Zoo.BusinessLogic.Test
             zoo.HireEmployee(veterinarian);
 
             lion.IsSick = true;
-            lion2.IsSick = true;
             Enclosure enclosure = zoo.FindAvailableEnclosure(lion);
             enclosure.AddAnimals(lion);
-            enclosure.AddAnimals(lion2);
 
             zoo.HealAnimals();
 
             Assert.False(lion.IsSick);
-            Assert.False(lion2.IsSick);
         }
         
         [Fact]
