@@ -7,8 +7,7 @@ namespace Zoo.ConsoleApp
     {
         static void Main(string[] args)
         {
-            ZooApp zooApp = new ZooApp();
-
+            RunZooApp.RunZoo();
         }
     }
 }

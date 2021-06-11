@@ -52,12 +52,12 @@ namespace Zoo.BusinessLogic.Test
             Snake snake = new();
             Turtle turtle = new();
 
-            Assert.Throws<NotFriendlyAnimalException>(() => { penguin.IsFriendlyWith(parrot); });
-            Assert.Throws<NotFriendlyAnimalException>(() => { penguin.IsFriendlyWith(bison); });
-            Assert.Throws<NotFriendlyAnimalException>(() => { penguin.IsFriendlyWith(elephant); });
-            Assert.Throws<NotFriendlyAnimalException>(() => { penguin.IsFriendlyWith(lion); });
-            Assert.Throws<NotFriendlyAnimalException>(() => { penguin.IsFriendlyWith(snake); });
-            Assert.Throws<NotFriendlyAnimalException>(() => { penguin.IsFriendlyWith(turtle); });
+            Assert.False(penguin.IsFriendlyWith(lion));
+            Assert.False(penguin.IsFriendlyWith(bison));
+            Assert.False(penguin.IsFriendlyWith(parrot));
+            Assert.False(penguin.IsFriendlyWith(elephant));
+            Assert.False(penguin.IsFriendlyWith(snake));
+            Assert.False(penguin.IsFriendlyWith(turtle));
         }
     }
 }

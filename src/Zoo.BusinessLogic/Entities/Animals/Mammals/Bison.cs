@@ -20,7 +20,7 @@ namespace Zoo.BusinessLogic
             }
             else
             {
-                throw new NotFriendlyAnimalException();
+                return false;
             }
         }
     }

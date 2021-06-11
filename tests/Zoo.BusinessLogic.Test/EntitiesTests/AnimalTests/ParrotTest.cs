@@ -76,7 +76,7 @@ namespace Zoo.BusinessLogic.Test
             Parrot parrot = new();
             Lion lion = new();
 
-            Assert.Throws<NotFriendlyAnimalException>(() => { parrot.IsFriendlyWith(lion); });
+            Assert.False(parrot.IsFriendlyWith(lion));
         }
 
         [Fact]
@@ -85,7 +85,7 @@ namespace Zoo.BusinessLogic.Test
             Parrot parrot = new();
             Snake snake = new();
 
-            Assert.Throws<NotFriendlyAnimalException>(() => { parrot.IsFriendlyWith(snake); });
+            Assert.False(parrot.IsFriendlyWith(snake));
         }
     }
 }

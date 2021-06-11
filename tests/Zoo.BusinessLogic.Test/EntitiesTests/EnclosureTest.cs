@@ -95,13 +95,36 @@ namespace Zoo.BusinessLogic.Test
             Enclosure firstEnclosure = new(new Zoo(), "huge enclosure", 10000);
             firstEnclosure.AddAnimals(new Lion());
 
-            Assert.Throws<NotFriendlyAnimalException>(() => { firstEnclosure.IsFriendlyTo(new Bison()); });
+            Assert.False(firstEnclosure.IsFriendlyTo(new Bison()));
 
             Enclosure secondEnclosure = new(new Zoo(), "big enclosure", 9000);
             secondEnclosure.AddAnimals(new Bison());
             bool isFriendlyToAnotherBison = secondEnclosure.IsFriendlyTo(new Elephant());
 
             Assert.True(isFriendlyToAnotherBison);
+        }
+
+        [Fact]
+        public void ShouldBeFindAvailableEnclosure()
+        {
+            Zoo zoo1 = new Zoo();
+            zoo1.AddEnclosure("lions", 10000);
+            zoo1.AddEnclosure("others", 10000);
+
+            Lion lion = new();
+            Elephant elephant = new();
+            Turtle turtle = new();
+            Lion lion2 = new();
+
+            zoo1.FindAvailableEnclosure(lion).AddAnimals(lion);
+            zoo1.FindAvailableEnclosure(elephant).AddAnimals(elephant);
+            zoo1.FindAvailableEnclosure(turtle).AddAnimals(turtle);
+            zoo1.FindAvailableEnclosure(lion2).AddAnimals(lion2);
+
+            Assert.Equal(lion, zoo1.Enclosures[0].Animals[0]);
+            Assert.Equal(elephant, zoo1.Enclosures[1].Animals[0]);
+            Assert.Equal(turtle, zoo1.Enclosures[1].Animals[1]);
+            Assert.Equal(lion2, zoo1.Enclosures[0].Animals[1]);
         }
     }
 }

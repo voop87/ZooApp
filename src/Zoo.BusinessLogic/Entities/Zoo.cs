@@ -43,8 +43,7 @@ namespace Zoo.BusinessLogic
         {
             foreach (var enclosure in Enclosures)
             {
-                if (enclosure.SqureFeet >= animal.RequiredFeet &&
-                    enclosure.IsFriendlyTo(animal))
+                if (enclosure.SqureFeet >= animal.RequiredFeet && enclosure.IsFriendlyTo(animal))
                 {
                     zooConsole?.WriteLine($"Enclosure {enclosure.Name} was found");
                     return enclosure;
@@ -76,31 +75,62 @@ namespace Zoo.BusinessLogic
         {
             if (Employees.Count != 0)
             {
+                List<IEmployee> ZooKeepers = new List<IEmployee>();
+
                 foreach (var employee in Employees)
                 {
                     if (employee.GetType().Name == typeof(ZooKeeper).Name)
                     {
-                        foreach (var enclosure in Enclosures)
-                        {
-                            foreach (var creature in enclosure.Animals)
-                            {
-
-                                (employee as ZooKeeper).FeedAnimal(creature);
-
-                            }
-                        }
-                        break;
+                        ZooKeepers.Add(employee);
                     }
-                    else
+                }
+
+                if (ZooKeepers.Count != 0)
+                {
+
+                    List<Animal> animalsToFeed = new List<Animal>();
+                    foreach (var enclosure in Enclosures)
                     {
-                        zooConsole?.WriteLine($"Zoo has no zookeeper, hire at least one");
-                        throw new NoNeededEmployeeException();
+                        foreach (var animal in enclosure.Animals)
+                        {
+                            animalsToFeed.Add(animal);
+                        }
                     }
+
+                    int index = animalsToFeed.Count / ZooKeepers.Count;
+
+                    List<Animal> firstGroup = new List<Animal>();
+                    for (int i = 0; i < index; i++)
+                    {
+                        firstGroup.Add(animalsToFeed[i]);
+                    }
+
+                    List<Animal> secondGroup = new List<Animal>();
+                    for (int i = index; i < animalsToFeed.Count; i++)
+                    {
+                        secondGroup.Add(animalsToFeed[i]);
+                    }
+
+                    foreach (var animal in firstGroup)
+                    {
+                        (ZooKeepers[0] as ZooKeeper).FeedAnimal(animal);
+                        zooConsole?.WriteLine($"{animal.GetType().Name} was fed by {ZooKeepers[0].FirstName} {ZooKeepers[0].LastName}");
+                    }
+                    foreach (var animal in secondGroup)
+                    {
+                        (ZooKeepers[1] as ZooKeeper).FeedAnimal(animal);
+                        zooConsole?.WriteLine($"{animal.GetType().Name} was fed by {ZooKeepers[1].FirstName} {ZooKeepers[1].LastName}");
+                    }
+                }
+                else
+                {
+                    zooConsole?.WriteLine($"Zoo has no zookeeper, hire at least one");
+                    throw new NoNeededEmployeeException();
                 }
             }
             else
             {
-                zooConsole?.WriteLine($"Zoo has no employees hired");
+                zooConsole?.WriteLine($"Zoo has no zookeeper, hire at least one");
                 throw new NoEmployeesException();
             }
         }
@@ -109,26 +139,35 @@ namespace Zoo.BusinessLogic
         {
             if (Employees.Count != 0)
             {
+                List<IEmployee> Veterinarians = new List<IEmployee>();
+
                 foreach (var employee in Employees)
                 {
                     if (employee.GetType().Name == typeof(Veterinarian).Name)
+                    {
+                        Veterinarians.Add(employee);
+                    }
+                }
+
+                if (Veterinarians.Count != 0)
+                {
+                    foreach (var veterinarian in Veterinarians)
                     {
                         foreach (var enclosure in Enclosures)
                         {
                             foreach (var creature in enclosure.Animals)
                             {
-                                (employee as Veterinarian).HealAnimal(creature);
-                                zooConsole?.WriteLine($"{creature.GetType().Name} was fed by {employee.FirstName} {employee.LastName}");
+                                (veterinarian as Veterinarian).HealAnimal(creature);
+                                zooConsole?.WriteLine($"{creature.GetType().Name} was heal by {veterinarian.FirstName} {veterinarian.LastName}");
                             }
                         }
                         break;
                     }
-                    else
-                    {
-                        zooConsole?.WriteLine($"Zoo has no veterinarian, hire at least one");
-                        throw new NoNeededEmployeeException();
-                    }
-
+                }
+                else
+                {
+                    zooConsole?.WriteLine($"Zoo has no veterinarian, hire at least one");
+                    throw new NoNeededEmployeeException();
                 }
             }
             else

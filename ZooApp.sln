@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zoo.BusinessLogic", "src\Zo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zoo.BusinessLogic.Test", "tests\Zoo.BusinessLogic.Test\Zoo.BusinessLogic.Test.csproj", "{5A82CE6B-1680-48FD-AEBC-66374DA87B40}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zoo.Programm.Test", "tests\Zoo.Programm.Test\Zoo.Programm.Test.csproj", "{349529C1-B7D6-4535-86AF-B7A5F9FDD6C4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{5A82CE6B-1680-48FD-AEBC-66374DA87B40}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A82CE6B-1680-48FD-AEBC-66374DA87B40}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A82CE6B-1680-48FD-AEBC-66374DA87B40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{349529C1-B7D6-4535-86AF-B7A5F9FDD6C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{349529C1-B7D6-4535-86AF-B7A5F9FDD6C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{349529C1-B7D6-4535-86AF-B7A5F9FDD6C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{349529C1-B7D6-4535-86AF-B7A5F9FDD6C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -39,6 +45,7 @@ Global
 		{4BCE6090-567B-4DAC-9EEF-72F2459FF93A} = {AE497BF4-391B-410A-94A4-4C699DD2A5DA}
 		{FEF5C038-BBC5-47AF-8658-E1A72A8A16A4} = {AE497BF4-391B-410A-94A4-4C699DD2A5DA}
 		{5A82CE6B-1680-48FD-AEBC-66374DA87B40} = {E54C76FA-72B2-45FB-A179-25B2FAD20960}
+		{349529C1-B7D6-4535-86AF-B7A5F9FDD6C4} = {E54C76FA-72B2-45FB-A179-25B2FAD20960}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {511E19B2-9D9C-47F1-B0AE-9F8D195B87E9}

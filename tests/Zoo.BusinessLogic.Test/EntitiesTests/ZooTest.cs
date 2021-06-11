@@ -169,6 +169,7 @@ namespace Zoo.BusinessLogic.Test
             Zoo zoo = new();
             zoo.AddEnclosure("Lions enclosure", 10000);
             Lion lion = new();
+            zoo.AddEnclosure("Lions eosure", 10000);
             ZooKeeper zooKeeper = new("John", "Doe");
             zooKeeper.AvailableFood.Add(new Grass());
             zooKeeper.AvailableFood.Add(new Vegetables());
@@ -183,6 +184,7 @@ namespace Zoo.BusinessLogic.Test
             zoo.FeedAnimals();
 
             Assert.False(lion.IsHungry);
+
         }
         
         [Fact]
@@ -194,12 +196,14 @@ namespace Zoo.BusinessLogic.Test
             Lion lion = new();
 
             Veterinarian veterinarian = new Veterinarian("John", "Doe");
+            ZooKeeper zooKeeper = new ZooKeeper("John", "Doe");
 
             veterinarian.AvailableMedicine.Add(new Antibiotics());
             veterinarian.AvailableMedicine.Add(new AntiDepression());
             veterinarian.AvailableMedicine.Add(new AntiInflammatory());
             veterinarian.AddAnimalExperience(lion);
 
+            zoo.HireEmployee(zooKeeper);
             zoo.HireEmployee(veterinarian);
 
             lion.IsSick = true;

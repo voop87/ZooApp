@@ -8,7 +8,7 @@ namespace Zoo.BusinessLogic
         public int ID { get; set; }
         public abstract string[] FavoriteFood { get; }
         public abstract int RequiredFeet { get; }
-        public string NeededMedicine { get; } = new string[3] { "Antibiotic", "AntiDepression", "AntiInflammatory" }[new Random().Next(0, 3)];
+        public string NeededMedicine { get; } = new string[3] { "Antibiotics", "AntiDepression", "AntiInflammatory" }[new Random().Next(0, 3)];
 
         public bool IsSick { get; set; } = (new Random().Next(0, 10) > 5);
 

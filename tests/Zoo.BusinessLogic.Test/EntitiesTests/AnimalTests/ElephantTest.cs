@@ -64,10 +64,10 @@ namespace Zoo.BusinessLogic.Test
             Penguin penguin = new();
             Snake snake = new();
 
-            Assert.Throws<NotFriendlyAnimalException>(() => { elephant.IsFriendlyWith(elephant); });
-            Assert.Throws<NotFriendlyAnimalException>(() => { elephant.IsFriendlyWith(lion); });
-            Assert.Throws<NotFriendlyAnimalException>(() => { elephant.IsFriendlyWith(penguin); });
-            Assert.Throws<NotFriendlyAnimalException>(() => { elephant.IsFriendlyWith(snake); });
+            Assert.False(elephant.IsFriendlyWith(elephant));
+            Assert.False(elephant.IsFriendlyWith(lion));
+            Assert.False(elephant.IsFriendlyWith(penguin));
+            Assert.False(elephant.IsFriendlyWith(snake));
         }
     }
 }
